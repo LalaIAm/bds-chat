@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 
 import Onboarding from './pages/Onboarding'
+import Login from './pages/Login'
+import Main from './pages/Main'
 
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Onboarding />} />
+      <Route path='login' element={<Login />} />
+      <Route path='main' element={<Main />} />
     </Routes>
   )
 }
