@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import logo from '../assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { socket } from '../socket';
+import { connectUser } from '../redux/features/user.slice';
+import {useDispatch} from 'react-redux'
 
 const Login = () => {
   const [nickname, setNickname] = useState('');
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const isDisabled = nickname.length < 4 || nickname.length > 60;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isDisabled) return;
+    socket.auth = { username: nickname }
+    dispatch(connectUser(nickname))
+    socket.connect()
 
     navigate('/main');
   };
