@@ -6,7 +6,7 @@ import './assets/scss/styles.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/bds-chat'>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
